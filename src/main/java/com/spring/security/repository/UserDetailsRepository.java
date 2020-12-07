@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +12,8 @@ import com.spring.security.model.UserInfo;
 
 @Repository
 @Transactional
+@Profile("dev")
+
 public interface UserDetailsRepository extends CrudRepository<UserInfo, String> {
 	public UserInfo findByUserNameAndEnabled(String userName, short enabled);
 
